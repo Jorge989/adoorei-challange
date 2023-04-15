@@ -28,7 +28,11 @@
       <router-link class="forgot-password-btn" to="#"
         >Esqueci minha senha</router-link
       >
-      <AuthButton text="fazer login"></AuthButton>
+      <AuthButton
+        text="fazer login"
+        :is-loading="isLoading"
+        :class="{ loading: isLoading }"
+      ></AuthButton>
     </form>
     <span
       >Ainda não tem conta?
@@ -41,6 +45,7 @@
 
 <script>
 import AuthButton from "../../components/Button/AuthButton.vue";
+
 export default {
   name: "LoginView",
   components: {
@@ -48,12 +53,23 @@ export default {
   },
   data() {
     return {
+      isLoading: false,
       email: "",
       password: "",
     };
   },
+  computed: {
+    authButtonLoading() {
+      return this.isLoading;
+    },
+  },
   methods: {
-    submitForm() {},
+    async submitForm() {
+      this.isLoading = true;
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 3000);
+    },
   },
 };
 </script>

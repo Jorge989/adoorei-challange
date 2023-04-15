@@ -27,6 +27,21 @@
   touch-action: manipulation;
   vertical-align: baseline;
   transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+  & span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 10%;
+    height: 90%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+  }
+
+  & span svg {
+    width: 1.2em;
+    height: 1.2em;
+  }
 }
 
 .auth-button:hover {

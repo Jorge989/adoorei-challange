@@ -1,0 +1,42 @@
+.auth-button {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  justify-content: center;
+  background-color: #f30168;
+  border-radius: 4px;
+  border: 0;
+  box-shadow: #f3016a98 0 -1px 3px 0 inset, rgba(0, 44, 97, 0.1) 0 3px 6px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  letter-spacing: 2px;
+  display: inherit;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-top: 20px;
+  min-height: 56px;
+  min-width: 120px;
+  width: 100%;
+  padding: 16px 20px;
+  position: relative;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.auth-button:hover {
+  background-color: #fa1b7c;
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .auth-button {
+    padding: 16px 44px;
+    min-width: 150px;
+  }
+}

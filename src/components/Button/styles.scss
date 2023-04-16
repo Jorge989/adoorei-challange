@@ -43,7 +43,9 @@
     height: 1.2em;
   }
 }
-
+.auth-button[disabled] {
+  opacity: 0.7;
+}
 .auth-button:hover {
   background-color: #fa1b7c;
   transform: translateY(-2px);

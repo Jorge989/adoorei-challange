@@ -1,0 +1,31 @@
+.plans-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .locaweb-logo {
+    margin-top: 50px;
+    width: 185px;
+    padding: 0 !important;
+    height: 100%;
+  }
+  & h1 {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    & span {
+      text-align: center;
+      color: #fa1b7c;
+      text-decoration: 2px underline;
+    }
+  }
+  .plans-section {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
+}

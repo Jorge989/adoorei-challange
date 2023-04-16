@@ -21,5 +21,5 @@ export default {
 </script>
 
 <style>
-@import "@/styles.scss";
+@import "home.scss";
 </style>

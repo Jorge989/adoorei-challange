@@ -1,12 +1,17 @@
-.container {
+/* Estilos para o container de login */
+.login-container {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  /* Estilos para o elemento <span> dentro do container de login */
   & span {
     margin-top: 20px;
     font-size: 18px;
   }
+
+  /* Estilos para o botão de registro */
   .register-btn {
     align-content: flex-start;
     font-weight: 500;
@@ -14,6 +19,8 @@
     font-size: 18px;
     color: #fa1b7c;
   }
+
+  /* Estilos para o logotipo da Locaweb */
   .locaweb-logo {
     margin-top: 50px;
     width: 185px;
@@ -21,8 +28,8 @@
     height: 100%;
   }
 
-  /* estilos para o formulário */
-  .FormLogin {
+  /* Estilos para o formulário de login */
+  .form-login {
     margin-top: 40px;
     display: flex;
     flex-direction: column;
@@ -32,12 +39,16 @@
     padding: 30px;
     border: 1px solid #e6eaf2;
     border-radius: 5px;
+
+    /* Estilos para as labels do formulário */
     & label {
       margin-top: 20px;
       align-content: flex-start;
       font-weight: 500;
       width: 100%;
     }
+
+    /* Estilos para as inputs do formulário */
     & input {
       margin-top: 2px;
       width: 100%;
@@ -47,19 +58,27 @@
       padding-left: 15px;
       font-weight: 400;
       font-size: 15px;
+
+      /* Estilos para o input quando em foco */
       &:focus {
         font-size: 16px;
       }
     }
+
+    /* Estilos para o título do formulário */
     & h1 {
       align-content: flex-start;
       width: 100%;
     }
+
+    /* Estilos para os parágrafos do formulário */
     & p {
       align-content: flex-start;
       width: 100%;
       margin-top: 7px;
     }
+
+    /* Estilos para o botão "esqueci minha senha" */
     .forgot-password-btn {
       text-decoration: none;
       margin-top: 10px;
@@ -71,25 +90,32 @@
 
   /* Estilos para dispositivos com tela menor que 768px */
   @media (max-width: 767px) {
-    .FormLogin {
+    .form-login {
       width: 90%;
       padding: 20px;
     }
+
+    /* Estilos para as labels em dispositivos menores */
     & label {
       font-size: 14px;
     }
+
+    /* Estilos para as inputs em dispositivos menores */
     & input {
       height: 50px;
       font-size: 14px;
     }
+
+    /* Estilos para o título em dispositivos menores */
     & h1 {
       font-size: 24px;
     }
+
+    /* Estilos para os parágrafos em dispositivos menores */
     & p {
       font-size: 16px;
     }
-    .forgot-password-btn {
-      font-size: 14px;
-    }
+
+    /* Estilos para o botão "esqueci minha senha" em dispositivos menores */
   }
 }

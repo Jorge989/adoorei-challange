@@ -1,22 +1,26 @@
 <template>
-  <div class="container">
+  <div class="login-container">
     <img
       class="locaweb-logo"
       :src="require('@/assets/img/1.png')"
       alt="locaweb"
     />
-    <form class="FormLogin" @submit.prevent="submitForm">
-      <h1>Entre na sua conta</h1>
+    <form class="form-login" @submit="submitForm">
+      <h1 id="login-title">Entre na sua conta</h1>
       <p>Para acessar sua conta informa seu e-mail e senha</p>
 
+      <!-- Input para o email -->
       <label for="email">E-mail:</label>
       <input
         type="email"
         id="email"
-        v-model="email"
+        v-model="username"
         placeholder="Seu e-mail"
         required
+        @keydown.enter.prevent="$refs.passwordInput.focus()"
       />
+
+      <!-- Input para a senha -->
       <label for="password">Senha:</label>
       <input
         type="password"
@@ -24,27 +28,35 @@
         v-model="password"
         placeholder="Sua senha"
         required
+        ref="passwordInput"
       />
+
+      <!-- Link para redefinição de senha -->
       <router-link class="forgot-password-btn" to="#"
         >Esqueci minha senha</router-link
       >
+
+      <!-- Botão de autenticação -->
       <AuthButton
         text="fazer login"
         :is-loading="isLoading"
         :class="{ loading: isLoading }"
+        :disabled="!isFormValid"
+        @keydown.enter.prevent="submitForm"
       ></AuthButton>
     </form>
+
+    <!-- Link para cadastro -->
     <span
       >Ainda não tem conta?
-      <router-link class="register-btn" to="/register"
-        >Cadastre-se</router-link
-      ></span
-    >
+      <router-link class="register-btn" to="/plans">Cadastre-se</router-link>
+    </span>
   </div>
 </template>
 
 <script>
 import AuthButton from "../../components/Button/AuthButton.vue";
+import api from "../../utils/api";
 
 export default {
   name: "LoginView",
@@ -53,27 +65,42 @@ export default {
   },
   data() {
     return {
-      isLoading: false,
-      email: "",
-      password: "",
+      isLoading: false, // Indica se a requisição está em progresso
+      username: "", // Armazena o email informado pelo usuário
+      password: "", // Armazena a senha informada pelo usuário
     };
   },
   computed: {
     authButtonLoading() {
       return this.isLoading;
     },
+    isFormValid() {
+      // Verifica se o formulário está válido (ambos os campos preenchidos)
+      return !!this.username && !!this.password;
+    },
   },
   methods: {
-    async submitForm() {
-      this.isLoading = true;
-      setTimeout(() => {
-        this.isLoading = false;
-      }, 3000);
+    async submitForm(event) {
+      // Função chamada ao submeter o formulário
+      event.preventDefault(); // Previne o comportamento padrão do formulário
+      this.isLoading = true; // Indica que a requisição está em progresso
+      try {
+        const response = await api.post("/auth/login", {
+          // Faz a requisição para autenticação do usuário
+          email: this.username,
+          password: this.password,
+        });
+        console.log(response.data.token); // Imprime o token de autenticação retornado pela API
+      } catch (error) {
+        console.log(error); // Imprime o erro no console, caso ocorra algum
+      } finally {
+        this.isLoading = false; //
+      }
     },
   },
 };
 </script>
 
 <style>
-@import "styles.scss";
+@import "login.scss";
 </style>

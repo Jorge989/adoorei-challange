@@ -13,6 +13,7 @@
         :is-loading="isLoading"
         :class="{ loading: isLoading }"
         @plan-selected="selectPlan"
+        @click="selectPlan"
       ></AuthButton>
 
       <h3 class="plan-container-h3">
@@ -84,6 +85,7 @@
 </template>
 
 <script>
+import store from "../../utils/store";
 import AuthButton from "../Button/AuthButton.vue";
 export default {
   name: "PlanView",
@@ -109,6 +111,8 @@ export default {
   methods: {
     selectPlan() {
       // lógica para selecionar o plano
+      store.commit("setSelectedPlan", this.planTitle);
+      store.state.selectedPlan = this.planTitle;
       this.$router.push("/register");
     },
   },

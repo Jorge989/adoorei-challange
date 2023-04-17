@@ -22,15 +22,22 @@
 
       <!-- Input para a senha -->
       <label for="password">Senha:</label>
-      <input
-        type="password"
-        id="password"
-        v-model="password"
-        placeholder="Sua senha"
-        required
-        ref="passwordInput"
-      />
-
+      <div class="password-container">
+        <input
+          :type="passwordFieldType"
+          id="password"
+          v-model="password"
+          placeholder="Sua senha"
+          required
+          ref="passwordInput"
+        />
+        <button
+          class="toggle-password-btn"
+          @click.prevent="togglePasswordVisibility"
+        >
+          <i :class="showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"></i>
+        </button>
+      </div>
       <!-- Link para redefinição de senha -->
       <router-link class="forgot-password-btn" to="#"
         >Esqueci minha senha</router-link
@@ -57,7 +64,7 @@
 <script>
 import AuthButton from "../../components/Button/AuthButton.vue";
 import api from "../../utils/api";
-
+import "@fortawesome/fontawesome-free/css/all.css";
 export default {
   name: "LoginView",
   components: {
@@ -68,6 +75,8 @@ export default {
       isLoading: false, // Indica se a requisição está em progresso
       username: "", // Armazena o email informado pelo usuário
       password: "", // Armazena a senha informada pelo usuário
+      showPassword: false, // Indica se a senha deve ser visível
+      passwordFieldType: "password", // Initial type is "password"
     };
   },
   computed: {
@@ -80,6 +89,11 @@ export default {
     },
   },
   methods: {
+    togglePasswordVisibility() {
+      this.showPassword = !this.showPassword;
+      this.passwordFieldType = this.showPassword ? "text" : "password";
+    },
+
     async submitForm(event) {
       // Função chamada ao submeter o formulário
       event.preventDefault(); // Previne o comportamento padrão do formulário

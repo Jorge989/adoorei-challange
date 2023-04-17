@@ -19,7 +19,20 @@
     font-size: 18px;
     color: #fa1b7c;
   }
-
+  .password-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .toggle-password-btn {
+    background-color: transparent;
+    color: #fa1b7c;
+    position: absolute;
+    margin-right: 20px;
+    font-size: 20px;
+    border: none;
+  }
   /* Estilos para o logotipo da Locaweb */
   .locaweb-logo {
     margin-top: 50px;

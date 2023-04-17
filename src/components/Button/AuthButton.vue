@@ -1,8 +1,11 @@
 <template>
   <button
     class="auth-button"
-    :class="{ loading: isLoading }"
-    @click="$emit('click')"
+    :class="{
+      loading: isLoading,
+      'left-align': text === 'escolher esse plano',
+    }"
+    @click="handleClick"
   >
     {{ text }}
     <span v-if="isLoading">
@@ -35,6 +38,15 @@ export default {
   watch: {
     isLoading(newVal) {
       console.log("isLoading changed to", newVal);
+    },
+  },
+  methods: {
+    handleClick() {
+      if (this.text === "escolher esse plano") {
+        this.$emit("plan-selected");
+      } else {
+        this.$emit("click");
+      }
     },
   },
 };

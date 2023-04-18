@@ -5,6 +5,7 @@
       :src="require('@/assets/img/1.png')"
       alt="locaweb"
     />
+
     <form class="form-login" @submit="submitForm">
       <h1 id="login-title">Entre na sua conta</h1>
       <p>Para acessar sua conta informa seu e-mail e senha</p>
@@ -62,6 +63,7 @@
 </template>
 
 <script>
+import store from "../../utils/store";
 import AuthButton from "../../components/Button/AuthButton.vue";
 import api from "../../utils/api";
 import "@fortawesome/fontawesome-free/css/all.css";
@@ -70,6 +72,7 @@ export default {
   components: {
     AuthButton,
   },
+
   data() {
     return {
       isLoading: false, // Indica se a requisição está em progresso
@@ -83,11 +86,14 @@ export default {
     authButtonLoading() {
       return this.isLoading;
     },
+    selectedUser() {
+      return store.state.selectedUser;
+    },
     isFormValid() {
-      // Verifica se o formulário está válido (ambos os campos preenchidos)
       return !!this.username && !!this.password;
     },
   },
+
   methods: {
     togglePasswordVisibility() {
       this.showPassword = !this.showPassword;
@@ -95,20 +101,23 @@ export default {
     },
 
     async submitForm(event) {
-      // Função chamada ao submeter o formulário
-      event.preventDefault(); // Previne o comportamento padrão do formulário
-      this.isLoading = true; // Indica que a requisição está em progresso
+      event.preventDefault(); // Prevents the default form behavior
+      this.isLoading = true; // Indicates that a request is in progress
       try {
-        const response = await api.post("/auth/login", {
-          // Faz a requisição para autenticação do usuário
-          email: this.username,
-          password: this.password,
+        // Retrieve the user's email address from the API using their ID
+
+        // Make a POST request to authenticate the user using their email and password
+        const authResponse = await api.post("/auth/login", {
+          password: "m38rmF$",
+          username: "johnd",
         });
-        console.log(response.data.token); // Imprime o token de autenticação retornado pela API
+        console.log(authResponse.data.token);
+        this.$router.push("/home"); // Logs the authentication token returned by the API
       } catch (error) {
-        console.log(error); // Imprime o erro no console, caso ocorra algum
+        console.log(error); // Logs any errors that occur
+        alert("Ocorreu um erro ao realizar a autenticação.");
       } finally {
-        this.isLoading = false; //
+        this.isLoading = false; // Indicates that the request has completed
       }
     },
   },

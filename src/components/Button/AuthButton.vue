@@ -4,6 +4,7 @@
     :class="{
       loading: isLoading,
       'left-align': text === 'escolher esse plano',
+      'auth-button-register': isRegister,
     }"
     @click="handleClick"
   >
@@ -29,6 +30,10 @@ export default {
     text: {
       type: String,
       required: true,
+      isRegister: {
+        type: Boolean,
+        default: false,
+      },
     },
     isLoading: {
       type: Boolean,

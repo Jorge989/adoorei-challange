@@ -1,6 +1,36 @@
-.container {
-  background-color: red;
+.home-container {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  .home-logo-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 30px;
+  }
+  .video-container {
+    margin-top: 40px;
+    & h2 {
+      font-size: 18px;
+      margin-top: 10px;
+      font-weight: 500;
+
+      margin-bottom: 10px;
+    }
+    & p {
+      margin-bottom: 40px;
+      margin-top: 10px;
+      & span {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+.locaweb-logo {
+  margin-top: 50px;
+  width: 185px;
+  padding: 0 !important;
+  height: 100%;
 }

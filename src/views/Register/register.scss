@@ -4,6 +4,8 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  flex-wrap: wrap;
+
   .password-container {
     width: 100%;
     display: flex;
@@ -26,14 +28,17 @@
     margin-top: 20px;
   }
 
-  & .plans-container-h1 {
+  & .register-container-h1 {
     margin-top: 30px;
     display: flex;
 
     line-height: 35px;
     justify-content: center;
     flex-direction: column;
-
+    @media only screen and (max-width: 1012px) {
+      width: 100%;
+      text-align: center;
+    }
     & span {
       text-align: center;
       color: #fa1b7c;
@@ -47,15 +52,18 @@
     margin-top: 30px;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     height: auto;
+    width: 100%;
     gap: 20px;
-    overflow: hidden;
+    margin: 0 auto;
 
     & .register-form-group {
       & .register-checkbox {
         display: flex;
         align-items: center;
         justify-content: center;
+
         & .custom-checkbox {
           /* Estilos personalizados aqui */
           background-color: pink !important;
@@ -74,15 +82,40 @@
         }
       }
     }
+    & .register-btn-spinner {
+      & span {
+        top: 50%;
+      }
+    }
     & .register-plan {
-      width: 30%;
-      height: 200px;
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      align-items: center;
+
+      width: 350px;
+      @media only screen and (max-width: 1012px) {
+        width: 500px;
+      }
+      & .register-container-strong {
+        background-color: black;
+        color: white;
+        top: -20px;
+        position: absolute;
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 14px;
+        letter-spacing: 1px;
+        padding: 8px 10px 8px 10px;
+        border-radius: 10px;
+      }
     }
-    & .teste {
-      background-color: none;
-    }
+
     & .plans-view {
-      height: auto;
+      height: 100% !important;
+      margin-top: -4px;
+      width: 100%;
     }
   }
   /* Estilos para o elemento <span> dentro do container de login */
@@ -192,5 +225,36 @@
     }
 
     /* Estilos para o botão "esqueci minha senha" em dispositivos menores */
+  }
+  @media only screen and (max-width: 1012px) {
+    .register-form-and-plan {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+    .register-plan {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      align-items: center;
+      width: 100%;
+    }
+    .register-container-strong {
+      background-color: black;
+      color: white;
+      top: -20px;
+      position: absolute;
+      text-transform: uppercase;
+      font-weight: 400;
+      font-size: 14px;
+      letter-spacing: 1px;
+      padding: 8px 10px 8px 10px;
+      border-radius: 10px;
+    }
+    .plans-view {
+      width: 500px !important;
+      height: 100% !important;
+      margin-top: -4px;
+    }
   }
 }

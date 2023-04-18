@@ -1,4 +1,5 @@
 <template>
+  <!-- Botão de autenticação com classes condicionais -->
   <button
     class="auth-button"
     :class="{
@@ -8,6 +9,7 @@
     }"
     @click="handleClick"
   >
+    <!-- texto do botão vindo da prop 'text' -->
     {{ text }}
     <span v-if="isLoading">
       <font-awesome-icon icon="spinner" spin></font-awesome-icon>
@@ -40,9 +42,7 @@ export default {
       required: true,
     },
   },
-  watch: {
-    isLoading(newVal) {},
-  },
+  watch: {},
   methods: {
     handleClick() {
       if (this.text === "escolher esse plano") {

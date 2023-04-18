@@ -101,12 +101,12 @@ export default {
     },
 
     async submitForm(event) {
-      event.preventDefault(); // Prevents the default form behavior
-      this.isLoading = true; // Indicates that a request is in progress
+      event.preventDefault(); // Impede o comportamento padrão do formulário
+      this.isLoading = true; // Indica que uma solicitação está em andamento
       try {
-        // Retrieve the user's email address from the API using their ID
+        // Recupere o endereço de e-mail do usuário da API usando seu ID
 
-        // Make a POST request to authenticate the user using their email and password
+        // Faça uma solicitação POST para autenticar o usuário usando seu e-mail e senha
         const authResponse = await api.post("/auth/login", {
           password: "m38rmF$",
           username: "johnd",
@@ -114,12 +114,12 @@ export default {
 
         localStorage.setItem("token", authResponse.data.token);
 
-        this.$router.push("/home"); // Logs the authentication token returned by the API
+        this.$router.push("/home"); // Registra o token de autenticação retornado pela API
       } catch (error) {
-        console.log(error); // Logs any errors that occur
+        console.log(error); // Registra todos os erros que ocorrem
         alert("Ocorreu um erro ao realizar a autenticação.");
       } finally {
-        this.isLoading = false; // Indicates that the request has completed
+        this.isLoading = false; // Indica que a solicitação foi concluída
       }
     },
   },

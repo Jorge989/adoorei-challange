@@ -250,12 +250,6 @@ export default {
       }
       try {
         const response = await api.post("/users", {
-          // Faz a requisição para cadastro do usuário
-          // username: this.username,
-          // phone: this.phone,
-          // email: this.email,
-          // password: this.password,
-          // site: this.site,
           email: this.email,
           username: this.username,
           password: this.password,

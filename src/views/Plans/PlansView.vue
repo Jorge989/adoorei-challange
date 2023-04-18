@@ -26,7 +26,7 @@
         planSubDomainQuantity="1 subdomínio"
         planMigrationSubTitle=""
       />
-      <div class="plans-conatiner-standard">
+      <div class="plans-container-standard">
         <strong class="plans-container-strong">mais usado</strong>
         <PlanView
           class="plans-view"

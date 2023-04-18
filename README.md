@@ -1,8 +1,12 @@
 # adoorei-challange
 
 ## Project setup
+Como fazer o Fork e Executar o Projeto Localmente
+1-Faça o fork deste repositório clicando no botão "Fork" na parte superior direita da página.
+2-Clone o repositório em sua máquina local: git clone https://github.com/[SEU_USUÁRIO_GITHUB]/adoorei-challange.git
 ```
 npm install
+npm run serve
 ```
 # Adoorei challange 
 

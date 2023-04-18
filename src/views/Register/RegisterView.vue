@@ -2,7 +2,7 @@
   <div class="register-container">
     <img
       class="locaweb-logo"
-      :src="require('@/assets/img/1.png')"
+      :src="require('@/assets/img/logo.png')"
       alt="locaweb"
     />
     <h1 class="register-container-h1">

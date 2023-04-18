@@ -23,6 +23,14 @@ const routes = [
     path: "/home",
     name: "Home",
     component: Home,
+    beforeEnter: (to, from, next) => {
+      const token = localStorage.getItem("token");
+      if (token) {
+        next();
+      } else {
+        next("/");
+      }
+    },
   },
 ];
 

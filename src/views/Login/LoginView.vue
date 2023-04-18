@@ -2,7 +2,7 @@
   <div class="login-container">
     <img
       class="locaweb-logo"
-      :src="require('@/assets/img/1.png')"
+      :src="require('@/assets/img/logo.png')"
       alt="locaweb"
     />
 
@@ -112,6 +112,8 @@ export default {
           username: "johnd",
         });
         console.log(authResponse.data.token);
+        localStorage.setItem("token", authResponse.data.token);
+
         this.$router.push("/home"); // Logs the authentication token returned by the API
       } catch (error) {
         console.log(error); // Logs any errors that occur

@@ -3,7 +3,7 @@
     <div class="home-logo-container">
       <img
         class="locaweb-logo"
-        :src="require('@/assets/img/1.png')"
+        :src="require('@/assets/img/logo.png')"
         alt="locaweb"
       />
     </div>

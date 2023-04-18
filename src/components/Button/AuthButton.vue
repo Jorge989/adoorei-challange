@@ -41,9 +41,7 @@ export default {
     },
   },
   watch: {
-    isLoading(newVal) {
-      console.log("isLoading changed to", newVal);
-    },
+    isLoading(newVal) {},
   },
   methods: {
     handleClick() {

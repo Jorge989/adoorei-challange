@@ -76,9 +76,7 @@ export default {
     };
   },
   methods: {
-    greet() {
-      console.log(this.message);
-    },
+    greet() {},
   },
 };
 </script>

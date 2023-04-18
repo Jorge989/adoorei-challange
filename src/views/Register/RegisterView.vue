@@ -231,7 +231,6 @@ export default {
       console.log(this.message);
     },
     isFormValid() {
-      console.log("aqui", this.username);
       return !this.username;
     },
     async submitForm(event) {
@@ -277,7 +276,7 @@ export default {
           phone: this.phone,
           site: this.site,
         });
-        console.log("aqui", response);
+
         const responseData = JSON.parse(response.config.data);
         const username = responseData.username;
         store.commit("setSelectedUser", {

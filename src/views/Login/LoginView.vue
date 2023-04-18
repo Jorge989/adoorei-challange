@@ -111,7 +111,7 @@ export default {
           password: "m38rmF$",
           username: "johnd",
         });
-        console.log(authResponse.data.token);
+
         localStorage.setItem("token", authResponse.data.token);
 
         this.$router.push("/home"); // Logs the authentication token returned by the API
